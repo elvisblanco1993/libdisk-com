@@ -25,4 +25,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/communities', App\Http\Livewire\Community\Index::class)->name('admin.communities.index');
+    Route::get('/collections', App\Http\Livewire\Collection\Index::class)->name('admin.collections.index');
+    Route::get('/items', App\Http\Livewire\Item\Index::class)->name('admin.items.index');
 });
