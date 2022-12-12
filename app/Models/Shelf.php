@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Community extends Model
+class Shelf extends Model
 {
     use HasFactory;
 
@@ -14,5 +14,7 @@ class Community extends Model
         'description',
         'copyright',
         'logo',
+        'is_private',
+        'is_hidden',
     ];
 }

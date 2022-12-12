@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('communities', function (Blueprint $table) {
+        Schema::create('shelves', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('description');
-            $table->longText('copyright');
+            $table->longText('description')->nullable();
+            $table->longText('copyright')->nullable();
             $table->string('logo');
+            $table->boolean('is_private')->default(0);
+            $table->boolean('is_hidden')->default(0);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('communities');
+        Schema::dropIfExists('collections');
     }
 };

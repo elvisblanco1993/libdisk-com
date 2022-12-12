@@ -26,7 +26,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/communities', App\Http\Livewire\Community\Index::class)->name('admin.communities.index');
-    Route::get('/collections', App\Http\Livewire\Collection\Index::class)->name('admin.collections.index');
+    Route::get('/shelves', App\Http\Livewire\Shelf\Index::class)->name('admin.shelf.index');
+    Route::get('/shelves/create', App\Http\Livewire\Shelf\Create::class)->name('admin.shelf.create');
+    Route::get('/shelves/{shelf}/edit', App\Http\Livewire\Shelf\Edit::class)->name('admin.shelf.edit');
+
     Route::get('/items', App\Http\Livewire\Item\Index::class)->name('admin.items.index');
 });

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('collection_id');
+            $table->foreignId('shelf_id');
             $table->string('file');
             $table->string('title');
             $table->string('title_1')->nullable();
