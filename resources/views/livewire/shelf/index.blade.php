@@ -15,7 +15,7 @@
                                     <tr>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">#</th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Name</th>
-                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Status</th>
+                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Mode</th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Visibility</th>
                                         <th scope="col" class="px-6 py-4">
                                             <span class="sr-only">Edit</span>
@@ -25,12 +25,24 @@
                                 <tbody>
                                     @forelse ($shelfs as $shelf)
                                         <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">Name here</td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">Hidden</td>
-                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">Private</td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $shelf->id }}</td>
+                                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{ $shelf->name }}</td>
+                                            <td class="text-gray-900 font-light px-6 py-4 whitespace-nowrap text-xs uppercase tracking-wider">
+                                                @if ($shelf->is_private)
+                                                    Private
+                                                @else
+
+                                                @endif
+                                            </td>
+                                            <td class="text-gray-900 font-light px-6 py-4 whitespace-nowrap text-xs uppercase tracking-wider">
+                                                @if ($shelf->is_hidden)
+                                                    Hidden
+                                                @else
+                                                    Visible
+                                                @endif
+                                            </td>
                                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                                <a href="{{ route('admin.shelf.edit') }}" class="">{{ __("Edit") }}</a>
+                                                <a href="{{ route('admin.shelf.edit', ['shelf' => $shelf]) }}" class="">{{ __("Edit") }}</a>
                                                 @livewire('shelf.delete', ['shelf' => $shelf], key('delete-shelf-' . $shelf->id))
                                             </td>
                                         </tr>
