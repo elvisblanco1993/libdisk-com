@@ -44,5 +44,15 @@
                 </x-jet-button>
             </div>
         </form>
+
+        <div class="mt-6 w-full mx-auto text-right">
+            <a href="/login/azure" class="inline-flex items-center space-x-2 text-sm font-semibold tracking-wider text-center px-4 py-2 bg-gray-200 text-gray-600 hover:bg-gray-100 transition-all rounded">
+                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-gray-500">
+                    <title>Windows 11</title>
+                    <path d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623"/>
+                </svg>
+                <span>Sign in with Microsoft 365</span>
+            </a>
+        </div>
     </x-jet-authentication-card>
 </x-guest-layout>

@@ -81,6 +81,12 @@
                 @endif
             @endif
         </div>
+
+        @if (auth()->user()->provider)
+            <div class="col-span-6 sm:col-span-4">
+                <p class="text-sm font-medium px-3 py-2 bg-yellow-100 text-yellow-800 rounded-md border border-yellow-400">{{ __("To change your password, please visit your OAuth provider's account.") }}</p>
+            </div>
+        @endif
     </x-slot>
 
     <x-slot name="actions">
