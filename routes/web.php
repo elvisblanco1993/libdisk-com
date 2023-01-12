@@ -30,9 +30,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/shelves', App\Http\Livewire\Shelf\Index::class)->name('admin.shelf.index');
-    Route::get('/shelves/create', App\Http\Livewire\Shelf\Create::class)->name('admin.shelf.create');
-    Route::get('/shelves/{shelf}/edit', App\Http\Livewire\Shelf\Edit::class)->name('admin.shelf.edit');
+    Route::middleware('can:read')->get('/shelves', App\Http\Livewire\Shelf\Index::class)->name('admin.shelf.index');
+    Route::middleware('can:shelf.create')->get('/shelves/create', App\Http\Livewire\Shelf\Create::class)->name('admin.shelf.create');
+    Route::middleware('can:shelf.edit')->get('/shelves/{shelf}/edit', App\Http\Livewire\Shelf\Edit::class)->name('admin.shelf.edit');
 
     Route::get('/items', App\Http\Livewire\Item\Index::class)->name('admin.items.index');
 });

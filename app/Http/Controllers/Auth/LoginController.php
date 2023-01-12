@@ -27,6 +27,8 @@ use Laravel\Socialite\Facades\Socialite;
                 ]
             );
 
+            $user->update(['permissions' => ['read']]);
+
             auth()->login($user, true);
 
             return redirect()->route('dashboard');

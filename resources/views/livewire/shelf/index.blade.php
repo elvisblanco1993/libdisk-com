@@ -1,8 +1,10 @@
 <div>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
-            <h1 class="text-2xl font-extrabold">{{ __("Shelfs") }}</h1>
-            <a href="{{ route('admin.shelf.create') }}" class="btn-link">{{ __("New Shelf") }}</a>
+            <h1 class="text-2xl font-extrabold">{{ __("Shelves") }}</h1>
+            @can('shelf.create')
+                <a href="{{ route('admin.shelf.create') }}" class="btn-link">{{ __("New Shelf") }}</a>
+            @endcan
         </div>
 
         <div class="my-10">

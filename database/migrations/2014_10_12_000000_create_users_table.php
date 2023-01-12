@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
+            $table->longText('permissions')->nullable();
             $table->timestamps();
         });
     }

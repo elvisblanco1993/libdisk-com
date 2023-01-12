@@ -3,26 +3,6 @@
 
     <div class="my-6 border-t"></div>
 
-    <a href="{{ route('dashboard') }}" @class([
-        'flex items-center space-x-2 py-2 px-2 hover:text-indigo-600',
-        'text-indigo-600' => request()->routeIs('dashboard'),
-    ])>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-            <path fill-rule="evenodd" d="M2.5 3A1.5 1.5 0 001 4.5v4A1.5 1.5 0 002.5 10h6A1.5 1.5 0 0010 8.5v-4A1.5 1.5 0 008.5 3h-6zm11 2A1.5 1.5 0 0012 6.5v7a1.5 1.5 0 001.5 1.5h4a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0017.5 5h-4zm-10 7A1.5 1.5 0 002 13.5v2A1.5 1.5 0 003.5 17h6a1.5 1.5 0 001.5-1.5v-2A1.5 1.5 0 009.5 12h-6z" clip-rule="evenodd" />
-        </svg>
-        <span>{{ __("Dashboard") }}</span>
-    </a>
-
-    <a href="{{ route('admin.shelf.index') }}" @class([
-        'flex items-center space-x-2 py-2 px-2 hover:text-indigo-600',
-        'text-indigo-600' => request()->routeIs('admin.shelf.index'),
-    ])>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 -rotate-90">
-            <path d="M5.127 3.502L5.25 3.5h9.5c.041 0 .082 0 .123.002A2.251 2.251 0 0012.75 2h-5.5a2.25 2.25 0 00-2.123 1.502zM1 10.25A2.25 2.25 0 013.25 8h13.5A2.25 2.25 0 0119 10.25v5.5A2.25 2.25 0 0116.75 18H3.25A2.25 2.25 0 011 15.75v-5.5zM3.25 6.5c-.04 0-.082 0-.123.002A2.25 2.25 0 015.25 5h9.5c.98 0 1.814.627 2.123 1.502a3.819 3.819 0 00-.123-.002H3.25z" />
-        </svg>
-        <span>{{ __("Shelves") }}</span>
-    </a>
-
     <a href="{{ route('admin.items.index') }}" @class([
         'flex items-center space-x-2 py-2 px-2 hover:text-indigo-600',
         'text-indigo-600' => request()->routeIs('admin.items.index'),
@@ -32,6 +12,18 @@
         </svg>
         <span>{{ __("Items") }}</span>
     </a>
+
+    @can('shelf.create')
+        <a href="{{ route('admin.shelf.index') }}" @class([
+            'flex items-center space-x-2 py-2 px-2 hover:text-indigo-600',
+            'text-indigo-600' => request()->routeIs('admin.shelf.index'),
+        ])>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 -rotate-90">
+                <path d="M5.127 3.502L5.25 3.5h9.5c.041 0 .082 0 .123.002A2.251 2.251 0 0012.75 2h-5.5a2.25 2.25 0 00-2.123 1.502zM1 10.25A2.25 2.25 0 013.25 8h13.5A2.25 2.25 0 0119 10.25v5.5A2.25 2.25 0 0116.75 18H3.25A2.25 2.25 0 011 15.75v-5.5zM3.25 6.5c-.04 0-.082 0-.123.002A2.25 2.25 0 015.25 5h9.5c.98 0 1.814.627 2.123 1.502a3.819 3.819 0 00-.123-.002H3.25z" />
+            </svg>
+            <span>{{ __("Shelves") }}</span>
+        </a>
+    @endcan
 
     <a href="{{ route('profile.show') }}" @class([
         'flex items-center space-x-2 py-2 px-2 hover:text-indigo-600',
