@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('/login/{provider}', [LoginController::class, 'redirectToProvider']);
 Route::get('/login/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
+Route::get('/items', App\Http\Livewire\Item\Index::class)->name('items.index');
+Route::get('/shelf/{shelf}/items', App\Http\Livewire\Shelf\Show::class)->name('shelf.show');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,5 +36,4 @@ Route::middleware([
     Route::middleware('can:shelf.create')->get('/shelves/create', App\Http\Livewire\Shelf\Create::class)->name('admin.shelf.create');
     Route::middleware('can:shelf.edit')->get('/shelves/{shelf}/edit', App\Http\Livewire\Shelf\Edit::class)->name('admin.shelf.edit');
 
-    Route::get('/items', App\Http\Livewire\Item\Index::class)->name('admin.items.index');
 });

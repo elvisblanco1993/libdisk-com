@@ -17,4 +17,9 @@ class Shelf extends Model
         'is_private',
         'is_hidden',
     ];
+
+    protected $casts = [
+        'is_private' => 'boolean',
+        'is_hidden' => 'boolean',
+    ];
 }
